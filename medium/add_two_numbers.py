@@ -10,23 +10,22 @@ class Solution(object):
         :type l2: ListNode
         :rtype: ListNode
         """
-        rem = 0
+        carry = 0
         res = ListNode()
         res_head = res
 
-        while head1 or head2:
-            val1 = l1.val if l1 else 0
-            val2 = l2.val if l2 else 0
-            val_ = val1 + val2 + rem
-            val = val_ % 10
-            rem = 1 if val_ > 9 else 0
+        while l1 or l2 or carry:
+            total = carry
+            if l1:
+                total += l1.val
+                l1 = l1.next
+            if l2:
+                total += l2.val
+                l2 = l2.next
 
+            carry = total // 10
+            val = total % 10
             res.next = ListNode(val=val)
             res = res.next
-            head1 = l1.next if l1 else None
-            head2 = l2.next if l2 else None
-            
-        if rem == 1:
-            res.next = ListNode(val=1)
         return res_head.next
         
