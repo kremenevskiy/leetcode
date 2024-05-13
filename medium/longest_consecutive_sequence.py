@@ -27,37 +27,6 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        # with bit arrays
-        if len(nums) == 0:
-            return 0
-        mx_num = max(nums)
-        min_num = min(nums)
-        mx_num = max(mx_num, abs(min_num))
-        table = [0] * (mx_num + 1) * 2
-        mid = len(table) // 2
-        for num in nums:
-            if num >= 0:
-                table[mid+num-1] = 1
-            else:
-                table[abs(num)] = 1
-
-        start = 0
-        print(table)
-        for i in range(1, len(table)):
-            if table[i] != 0:
-                table[i] += table[i-1]
-        print(max(table))
-        print(table)
-        return max(table)
-
-
-
-class Solution(object):
-    def longestConsecutive(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
         if len(nums) == 0:
             return 0
         d = {}
