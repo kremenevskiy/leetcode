@@ -14,8 +14,7 @@ class Solution(object):
             fib1, fib2 = fib2, fib1 + fib2
         return fib2
 
-        
-
+    
 
 n = 2
 ans = 2
