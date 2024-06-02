@@ -7,7 +7,7 @@ def compare(num1: str, num2 : str):
         num1, num2 = num1 + num2, num2 + num1
         return int(num1) - int(num2)
     
-    
+
 def compare(num1: str, num2 : str):
     if len(num1) == len(num2):
         return int(num1) - int(num2)
@@ -26,6 +26,16 @@ class Solution:
         nums = sorted([str(num) for num in nums], key=cmp_to_key(compare), reverse=True)
         ans =  ''.join(nums)
         return ans
+
+
+class Solution:
+    def largestNumber(self, nums: List[int]) -> str:
+        nums = sorted([str(num) for num in nums], key=lambda x: x*10, reverse=True)
+        if nums[0] == "0":
+            return "0"
+        ans =  ''.join(nums)
+        return ans
+
 
 nums = [10, 2]
 ans = "210"
